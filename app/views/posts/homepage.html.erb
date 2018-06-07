@@ -1,0 +1,16 @@
+<%=  title "Homepage Topa tudo por dinheiro" %>
+
+<div class="row">
+  <div class="col-xs-8">
+
+    <% Post.all.each do |post| %>
+      <h2><%= post.title %></h2>
+
+
+      <p><%=  post.content %></p>
+
+      <hr/>
+    <% end %>
+  </div>
+
+</div>

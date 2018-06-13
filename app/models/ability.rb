@@ -11,6 +11,7 @@ class Ability
            else
           can :read, :create, :all
           can :create, Post
+          can :read, Post
           can :manage , Post do |post|
              post.user == user
           end

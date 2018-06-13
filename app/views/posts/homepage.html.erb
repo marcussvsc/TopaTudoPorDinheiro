@@ -1,13 +1,19 @@
 <%=  title "Homepage Topa tudo por dinheiro" %>
 
 <div class="row">
-  <div class="col-xs-8">
+  <div class="col-xs-12">
 
     <% Post.all.each do |post| %>
-      <h2><%= post.title %></h2>
+      <h2><%=link_to post.title, post %></h2>
 
 
       <p><%=  post.content %></p>
+      <tr>
+
+        <% if can? :manage, post %>
+          <td><%= link_to '', edit_post_path(post), class: 'btn btn-primary glyphicon glyphicon-wrench' %></td>
+          <td><%= link_to '', post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary glyphicon glyphicon-trash' %></td>
+        <% end %>
 
       <hr/>
     <% end %>
